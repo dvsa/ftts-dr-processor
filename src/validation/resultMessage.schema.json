@@ -1,0 +1,69 @@
+{
+  "$ref": "#/definitions/ResultMessage",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ResultMessage": {
+      "additionalProperties": false,
+      "properties": {
+        "bookingId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "licence": {
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/definitions/Target"
+        },
+        "results": {
+          "type": "object"
+        },
+        "tracing": {
+          "$ref": "#/definitions/Tracing"
+        }
+      },
+      "required": [
+        "email",
+        "licence",
+        "target",
+        "results",
+        "tracing",
+        "bookingId"
+      ]
+    },
+    "Target": {
+      "enum": [
+        "gb",
+        "ni"
+      ],
+      "type": "string"
+    },
+    "Tracing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trace_id": {
+          "type": "string"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "AppointmentId": {
+          "type": "string"
+        },
+        "bookingProductId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "bookingProductId"
+      ]
+    }
+  }
+}

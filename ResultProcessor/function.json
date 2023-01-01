@@ -1,0 +1,13 @@
+{
+  "bindings": [
+    {
+      "name": "resultMessage",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "%QUEUE_ARRIVAL_NAME%",
+      "connection": "SERVICE_BUS_CONNECTION_STRING",
+      "accessRights": "listen"
+    }
+  ],
+  "scriptFile": "../dist/resultProcessor/index.js"
+}
